@@ -4,6 +4,7 @@
 		<title>Five test</title>
 		<script type="text/javascript" src="../src/core.js"></script>
 		<script type="text/javascript" src="../src/plugins/input.js"></script>
+		<script type="text/javascript" src="../src/plugins/sprite.js"></script>
 		<style type="text/css">
 			.Five-container {
 				width: 500px;
@@ -21,7 +22,7 @@
 
 			var game = new Five.Game ();
 			document.body.appendChild(game.container);
-			game.Plugins.addMultiple (["Input"]);
+			game.Plugins.addMultiple (["Input","Sprite"]);
 			game.Input.mapKeys(keyConfig);
 			
 
