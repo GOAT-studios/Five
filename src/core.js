@@ -364,7 +364,7 @@ var Five = {
 
             return current;
         },
-        arrayToObject (array, key) {
+        arrayToObject: function(array, key) {
             var obj = {};
             for(var i = 0, len = array.length; i < len; i++) {
                 obj[array[i][key]] = array[i];
