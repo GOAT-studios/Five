@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Five test</title>
+		<script type="text/javascript" src="../src/core.js"></script>
+		<script type="text/javascript" src="../src/plugins/input.js"></script>
+		<style type="text/css">
+			.Five-container {
+				width: 500px;
+				height: 500px;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="number" name="time" id="benchmark-time" />seconds
+		<button onClick="benchmark()">Start</button>
+
+		<script type="text/javascript">
+			var keyConfig = {37:"left",38:"up",39:"right",40:"down",32:"jump"};
+
+			var game = new Five.Game ();
+			document.body.appendChild(game.container);
+			game.Plugins.addMultiple (["Input"]);
+			game.Input.mapKeys(keyConfig);
+			
+
+
+			var benchmark = function() {
+				console.log("Starting benchmark...");
+				var time = parseInt (document.getElementById ("benchmark-time").value) * 1000;
+				var start = Five.time ();
+				game.start ();
+
+				setTimeout(function() {
+					game.pause ();
+					var end = Five.time ();
+					var diff = end - start;
+
+					console.log("Time passed: %dms",  diff);
+					console.log("Frames drawn: %d", game.frames);
+					console.log("Frames/second: %dfps", game.frames / (diff / 1000));
+					console.log("Average draw time: %d ms", Five.Utils.getAverageDrawTime(game));
+				}, time);
+			}
+		</script>
+	</body>
+</html>
