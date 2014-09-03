@@ -67,7 +67,7 @@ var Plugin = {
 		content: Animation
 	}
 }
-Five.plugins.push (plugin);
+Five.plugins.push (Plugin);
 
 
 }())
