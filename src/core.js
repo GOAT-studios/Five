@@ -426,7 +426,7 @@ var Five = {
 }
 
 Five.container = document.createElement ("div");
-Five.container.setAttribute ("id", "Five-assets");
+Five.container.setAttribute ("id", "Five-assets-top");
 Five.container.setAttribute ("style", "width:0;height:0;visibility:hidden;overflow:hidden;")
 document.addEventListener ("DOMContentLoaded", function() {
     document.body.appendChild (Five.container);
