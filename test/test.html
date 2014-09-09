@@ -7,6 +7,7 @@
 		<script type="text/javascript" src="../src/plugins/sprite.js"></script>
 		<script type="text/javascript" src="../src/plugins/animations-frame.js"></script>
 		<script type="text/javascript" src="../src/plugins/animations-collection.js"></script>
+		<script type="text/javascript" src="../src/plugins/assets.js"></script>
 		<style type="text/css">
 			.Five-container {
 				width: 500px;
@@ -24,8 +25,16 @@
 
 			var game = new Five.Game ();
 			document.body.appendChild(game.container);
-			game.Plugins.addMultiple (["Input","Sprite","animations-frame","animations-collection"]);
+			game.Plugins.addMultiple (["Input","Sprite","animations-frame","animations-collection","Assets"]);
 			game.Input.mapKeys(keyConfig);
+
+			game.Assets.on("done", function(){console.log("asset done");});
+			game.Assets.on("error", function(){console.log("asset error");});
+
+			game.Assets.load("assets/text.txt", true);
+			game.Assets.load(["image.jpeg", "image.jf", "assets/image.png"], "image", true);
+			game.Assets.load(["audio.ogg", "assets/audio.mp3"], "audio");
+			game.Assets.load("assets/video.webm", "video");
 			
 
 
